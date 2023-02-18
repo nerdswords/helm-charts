@@ -1,6 +1,6 @@
 apiVersion: v2
 name: yet-another-cloudwatch-exporter
-description: Yet Another Cloudwatch Exporter
+description: Yace - Yet Another Cloudwatch Exporter
 type: application
 version: 0.14.0
 appVersion: "v0.48.0-alpha"

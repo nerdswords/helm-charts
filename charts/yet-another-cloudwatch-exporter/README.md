@@ -2,15 +2,15 @@
 
 ![Version: 0.14.0](https://img.shields.io/badge/Version-0.14.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.48.0-alpha](https://img.shields.io/badge/AppVersion-v0.48.0--alpha-informational?style=flat-square)
 
-Yet Another Cloudwatch Exporter
+Yace - Yet Another Cloudwatch Exporter
 
 **Homepage:** <https://github.com/nerdswords/helm-charts>
 
 ## Installation
 
 ```sh
-helm repo add yet-another-cloudwatch-exporter https://nerdswords.github.io/yet-another-cloudwatch-exporter
-helm install yet-another-cloudwatch-exporter/yet-another-cloudwatch-exporter
+helm repo add nerdswords https://nerdswords.github.io/helm-charts
+helm install nerdswords/yet-another-cloudwatch-exporter
 ```
 
 ## Source Code

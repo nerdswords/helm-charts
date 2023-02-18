@@ -1,0 +1,52 @@
+name: Publish helm chart
+
+on:
+  push:
+    tags:
+    - 'v*'
+
+jobs:
+  publish:
+    if: github.repository == 'nerdswords/helm-charts'
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+
+      - name: Install Helm
+        uses: azure/setup-helm@v3
+
+      - name: Run chart-releaser
+        uses: helm/chart-releaser-action@v1.5.0
+        env:
+          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          CR_RELEASE_NAME_TEMPLATE: "helm-chart-{{ .Version }}"
+
+  readme:
+    if: github.repository == 'nerdswords/helm-charts'
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          cp -f README.md ${{ runner.temp }}/README.md
+      - uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+      - run: |
+          cp -f ${{ runner.temp }}/README.md .
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git add README.md
+          git commit -m "Sync README from main"
+          git push
