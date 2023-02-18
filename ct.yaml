@@ -1,8 +1,0 @@
-remote: origin
-target-branch: main
-chart-dirs:
-  - charts
-chart-repos:
-  - nerdswords=https://nerdswords.github.io/helm-charts
-helm-extra-args: --timeout 600s
-validate-maintainers: false
