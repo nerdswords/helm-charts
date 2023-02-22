@@ -1,21 +1,14 @@
 name: Release helm chart
 
 on:
-  workflow_run:
-    workflows: ["Lint helm chart"]
+  push:
     branches: [main]
-    types:
-      - completed
+    paths:
+    - "charts/yet-another-cloudwatch-exporter/Chart.yaml"
 
 jobs:
-  debug:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "event name is:" ${{ github.event_name }}
-      - run: echo "event ref is:" ${{ github.event.ref }}
-
   release:
-    if: github.repository == 'nerdswords/helm-charts' && (github.event_name == 'push' || github.event_name == 'release') && startsWith(github.event.ref, 'refs/tags/')
+    if: github.repository == 'nerdswords/helm-charts'
     permissions:
       contents: write
     runs-on: ubuntu-latest
@@ -32,12 +25,14 @@ jobs:
 
       - name: Install Helm
         uses: azure/setup-helm@v3
+        with:
+          version: v3.9.0
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.5.0
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          CR_RELEASE_NAME_TEMPLATE: "helm-chart-{{ .Version }}"
+          CR_RELEASE_NAME_TEMPLATE: "yace-helm-chart-{{ .Version }}"
 
   sync-readme:
     needs: [release]
