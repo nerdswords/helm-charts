@@ -11,6 +11,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - run: echo "event name is:" ${{ github.event_name }}
+      - run: echo "event ref is:" ${{ github.event.ref }}
+
       - name: Set up Helm
         uses: azure/setup-helm@v3
 
