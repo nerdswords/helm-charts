@@ -1,4 +1,4 @@
-name: Publish helm chart
+name: Release helm chart
 
 on:
   workflow_run:
@@ -8,8 +8,8 @@ on:
       - completed
 
 jobs:
-  publish:
-    if: github.repository == 'nerdswords/helm-charts' && (github.event_name == 'push' || github.event_name == 'release') && startsWith(github.event.ref, 'refs/tags/v')
+  release:
+    if: github.repository == 'nerdswords/helm-charts' && (github.event_name == 'push' || github.event_name == 'release') && startsWith(github.event.ref, 'refs/tags/')
     permissions:
       contents: write
     runs-on: ubuntu-latest
@@ -34,7 +34,7 @@ jobs:
           CR_RELEASE_NAME_TEMPLATE: "helm-chart-{{ .Version }}"
 
   sync-readme:
-    needs: [publish]
+    needs: [release]
     permissions:
       contents: write
     runs-on: ubuntu-latest
