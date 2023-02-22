@@ -34,7 +34,7 @@ jobs:
           CR_RELEASE_NAME_TEMPLATE: "helm-chart-{{ .Version }}"
 
   sync-readme:
-    if: github.repository == 'nerdswords/helm-charts'
+    needs: [publish]
     permissions:
       contents: write
     runs-on: ubuntu-latest
