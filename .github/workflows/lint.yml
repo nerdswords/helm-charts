@@ -1,6 +1,7 @@
+name: Lint helm chart
+
 on: push
 
-name: lint yace helm chart
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -38,3 +39,12 @@ jobs:
 
       - name: Run chart-testing (install)
         run: ct install --config ct.yaml
+
+      - name: Install helm-docs
+        run: go install github.com/norwoodj/helm-docs/cmd/helm-docs@latest
+
+      - name: Run helm-docs
+        run: $HOME/go/bin/helm-docs
+
+      - name: Check docs are up-to-date
+        run: git diff --exit-code -- charts/**/README.md
