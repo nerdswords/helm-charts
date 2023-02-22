@@ -14,4 +14,4 @@ helm repo add nerdswords https://nerdswords.github.io/helm-charts
 helm install nerdswords/yet-another-cloudwatch-exporter
 ```
 
-Chart documentation is available in [chart directory](https://github.com/nerdswords/helm-charts/blob/main/charts/yet-another-cloudwatch-exporter/README.md).
+Chart documentation is available in [chart directory](charts/yet-another-cloudwatch-exporter/README.md).

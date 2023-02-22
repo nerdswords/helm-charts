@@ -44,7 +44,8 @@ jobs:
 
       - name: Copy README
         run: |
-          cp -f README.md ${{ runner.temp }}/README.md
+          cp -f README.md ${{ runner.temp }}/root-README.md
+          cp -f charts/yet-another-cloudwatch-exporter/README.md ${{ runner.temp }}/chart-README.md
 
       - name: Checkout branch gh-pages
         uses: actions/checkout@v3
@@ -58,7 +59,9 @@ jobs:
 
       - name: Commit and push
         run: |
-          cp -f ${{ runner.temp }}/README.md .
+          cp -f ${{ runner.temp }}/root-README.md README.md
           git add README.md
+          cp -f ${{ runner.temp }}/chart-README.md charts/yet-another-cloudwatch-exporter/README.md
+          git add charts/yet-another-cloudwatch-exporter/README.md
           git commit -m "Sync README from main"
           git push
