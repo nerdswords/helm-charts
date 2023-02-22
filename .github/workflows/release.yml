@@ -3,13 +3,11 @@ name: Release helm chart
 on:
   workflow_run:
     workflows: ["Lint helm chart"]
-    branches: [main]
-    types:
-      - completed
+    types: [completed]
 
 jobs:
   release:
-    if: github.repository == 'nerdswords/helm-charts' && (github.event_name == 'push' || github.event_name == 'release') && startsWith(github.event.ref, 'refs/tags/')
+    if: github.repository == 'nerdswords/helm-charts' && startsWith(github.event.ref, 'refs/tags/')
     permissions:
       contents: write
     runs-on: ubuntu-latest
