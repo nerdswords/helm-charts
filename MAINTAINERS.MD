@@ -1,4 +1,0 @@
-# Maintainers
-
-@cristiangreco
-@thomaspeitz
