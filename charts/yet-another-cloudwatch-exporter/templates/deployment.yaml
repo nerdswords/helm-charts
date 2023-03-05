@@ -45,9 +45,12 @@ spec:
           volumeMounts:
             - name: vol-yet-another-cloudwatch-exporter
               mountPath: /config
-        {{- if not .Values.aws.role }}
-        {{- if .Values.aws.secret.name }}
           env:
+            {{- if .Values.extraEnv }}
+              {{- toYaml .Values.extraEnv | nindent 12 }}
+            {{- end }}
+            {{- if not .Values.aws.role }}
+            {{- if .Values.aws.secret.name }}
             - name: AWS_ACCESS_KEY_ID
               valueFrom:
                 secretKeyRef:
@@ -58,15 +61,14 @@ spec:
                 secretKeyRef:
                   key: secret_key
                   name: {{ .Values.aws.secret.name }}
-          {{- if .Values.aws.secret.includesSessionToken }}
+            {{- if .Values.aws.secret.includesSessionToken }}
             - name: AWS_SESSION_TOKEN
               valueFrom:
                 secretKeyRef:
                   key: security_token
                   name: {{ .Values.aws.secret.name }}
-          {{- end }}
-          {{- else if and .Values.aws.aws_secret_access_key .Values.aws.aws_access_key_id }}
-          env:
+            {{- end }}
+            {{- else if and .Values.aws.aws_secret_access_key .Values.aws.aws_access_key_id }}
             - name: AWS_ACCESS_KEY_ID
               valueFrom:
                 secretKeyRef:
@@ -77,8 +79,8 @@ spec:
                 secretKeyRef:
                   key: aws_secret_access_key
                   name: {{ include "yet-another-cloudwatch-exporter.fullname" . }}
-          {{- end }}
-          {{- end }}
+            {{- end }}
+            {{- end }}
           ports:
             - name: {{ .Values.portName }}
               containerPort: 5000
