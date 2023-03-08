@@ -2,8 +2,8 @@ apiVersion: v2
 name: yet-another-cloudwatch-exporter
 description: Yace - Yet Another Cloudwatch Exporter
 type: application
-version: 0.17.0
-appVersion: "v0.48.0-alpha"
+version: 0.18.0
+appVersion: "v0.49.2"
 home: https://github.com/nerdswords/helm-charts
 sources:
 - https://github.com/nerdswords/yet-another-cloudwatch-exporter
