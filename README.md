@@ -2,6 +2,8 @@
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
+Helm chart for [YACE](https://github.com/nerdswords/yet-another-cloudwatch-exporter).
+
 ## Usage
 
 [Helm](https://helm.sh) must be installed to use the chart.
