@@ -41,6 +41,9 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
+  # -- Annotations to add to the service
+  annotations: {}
+
   type: ClusterIP
   port: 80
 
