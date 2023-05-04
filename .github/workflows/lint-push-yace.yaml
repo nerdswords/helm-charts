@@ -1,0 +1,27 @@
+name: Lint and Push YACE
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag-to-push:
+        description: "The git tag in the repository that should be pushed and built."
+        type: string
+        required: true
+  pull_request: {}
+
+jobs:
+  lint:
+    uses: ./.github/workflows/helm-lint.yml
+    secrets: inherit
+    with:
+      chart-path: charts/yet-another-cloudwatch-exporter
+
+  release:
+    uses: ./.github/workflows/helm-release.yml
+    secrets: inherit
+    if: github.event_name != 'pull_request'
+    with:
+      chart-path: charts/yet-another-cloudwatch-exporter
+      artifact-name: yet-another-cloudwatch-exporter-package
+      region: us-west-2
+      account-id: 338683922796

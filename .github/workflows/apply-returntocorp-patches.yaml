@@ -1,0 +1,39 @@
+name: Apply Patches to Tag
+
+on:
+  workflow_dispatch:
+    inputs:
+      patches-branch:
+        required: true
+        type: string
+        description: The branch on the upstream remote that should be fetch
+        default: returntocorp-patches
+      upstream-tag:
+        required: true
+        type: string
+        description: The tag from the upstream repository that the patches should be applied to, e.g., datadog-operator-0.9.1
+
+jobs:
+  apply-patches:
+    name: Pull Latest From Upstream Remote
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout Local
+        uses: actions/checkout@v3
+        id: checkout
+        with:
+          ref: ${{ inputs.upstream-tag }}
+      - name: Create Branch
+        run: |
+          git checkout -b "returntocorp-${{ inputs.upstream-tag }}"
+      - name: Setup Git
+        run: |
+          git config user.name ${{ github.actor }}
+          git config user.email ${{ github.actor }}@users.noreply.github.com
+      - name: Pull and Merge into Local
+        run: |
+          git fetch
+          git merge origin/${{ inputs.patches-branch }}
+      - name: Push to Origin
+        run: |
+          git push origin "returntocorp-${{ inputs.upstream-tag }}"
