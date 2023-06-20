@@ -1,6 +1,6 @@
 # yet-another-cloudwatch-exporter
 
-![Version: 0.20.0](https://img.shields.io/badge/Version-0.20.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.51.0](https://img.shields.io/badge/AppVersion-v0.51.0-informational?style=flat-square)
+![Version: 0.21.0](https://img.shields.io/badge/Version-0.21.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.52.0](https://img.shields.io/badge/AppVersion-v0.52.0-informational?style=flat-square)
 
 Yace - Yet Another CloudWatch Exporter
 
@@ -53,6 +53,7 @@ helm install nerdswords/yet-another-cloudwatch-exporter
 | replicaCount | int | `1` |  |
 | resources | object | `{}` |  |
 | securityContext | object | `{}` |  |
+| service.annotations | object | `{}` | Annotations to add to the service |
 | service.port | int | `80` |  |
 | service.type | string | `"ClusterIP"` |  |
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
