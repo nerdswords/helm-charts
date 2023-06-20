@@ -43,6 +43,8 @@ securityContext: {}
 service:
   type: ClusterIP
   port: 80
+  # -- Annotations to add to the service
+  annotations: {}
 
 testConnection: true
 
