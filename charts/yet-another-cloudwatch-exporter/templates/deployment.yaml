@@ -45,6 +45,9 @@ spec:
           volumeMounts:
             - name: vol-yet-another-cloudwatch-exporter
               mountPath: /config
+            {{- if .Values.extraVolumeMounts }}
+              {{- toYaml .Values.extraVolumeMounts | nindent 12}}
+            {{- end }}
           env:
             {{- if .Values.extraEnv }}
               {{- toYaml .Values.extraEnv | nindent 12 }}
@@ -111,7 +114,10 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       volumes:
-      - configMap:
-          defaultMode: 420
-          name: {{ include "yet-another-cloudwatch-exporter.fullname" . }}
-        name: vol-yet-another-cloudwatch-exporter
+        - configMap:
+            defaultMode: 420
+            name: {{ include "yet-another-cloudwatch-exporter.fullname" . }}
+          name: vol-yet-another-cloudwatch-exporter
+      {{- if .Values.extraVolumes }}
+        {{- toYaml .Values.extraVolumes | nindent 8}}
+      {{- end }}
