@@ -2,6 +2,26 @@ apiVersion: v1
 entries:
   yet-another-cloudwatch-exporter:
   - apiVersion: v2
+    appVersion: v0.53.0
+    created: "2023-08-22T11:53:37.8416718Z"
+    description: Yace - Yet Another CloudWatch Exporter
+    digest: 81599f5f68b2938ae11ecf556f6e1987dd6cda470a91e351e8fb7b351359c45a
+    home: https://github.com/nerdswords/helm-charts
+    keywords:
+    - aws
+    - cloudwatch
+    - prometheus
+    - exporter
+    - yet-another-cloudwatch-exporter
+    - yace
+    name: yet-another-cloudwatch-exporter
+    sources:
+    - https://github.com/nerdswords/yet-another-cloudwatch-exporter
+    type: application
+    urls:
+    - https://github.com/nerdswords/helm-charts/releases/download/yace-helm-chart-0.22.0/yet-another-cloudwatch-exporter-0.22.0.tgz
+    version: 0.22.0
+  - apiVersion: v2
     appVersion: v0.52.0
     created: "2023-06-20T13:54:28.794683856Z"
     description: Yace - Yet Another CloudWatch Exporter
@@ -101,4 +121,4 @@ entries:
     urls:
     - https://github.com/nerdswords/helm-charts/releases/download/yace-helm-chart-0.17.0/yet-another-cloudwatch-exporter-0.17.0.tgz
     version: 0.17.0
-generated: "2023-06-20T13:54:28.794719256Z"
+generated: "2023-08-22T11:53:37.841692902Z"
