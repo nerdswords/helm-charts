@@ -43,7 +43,7 @@ jobs:
         run: ct install --config ct.yaml
 
       - name: Install helm-docs
-        run: go install github.com/norwoodj/helm-docs/cmd/helm-docs@latest
+        run: go install github.com/norwoodj/helm-docs/cmd/helm-docs@v1.11.0
 
       - name: Run helm-docs
         run: $HOME/go/bin/helm-docs
