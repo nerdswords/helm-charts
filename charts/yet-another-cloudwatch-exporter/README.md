@@ -30,6 +30,8 @@ helm install nerdswords/yet-another-cloudwatch-exporter
 | config | string | `"apiVersion: v1alpha1\nsts-region: eu-west-1\ndiscovery:\n  exportedTagsOnMetrics:\n    ec2:\n      - Name\n    ebs:\n      - VolumeId\n  jobs:\n  - type: es\n    regions:\n      - eu-west-1\n    searchTags:\n      - key: type\n        value: ^(easteregg|k8s)$\n    metrics:\n      - name: FreeStorageSpace\n        statistics:\n        - Sum\n        period: 60\n        length: 600\n      - name: ClusterStatus.green\n        statistics:\n        - Minimum\n        period: 60\n        length: 600\n      - name: ClusterStatus.yellow\n        statistics:\n        - Maximum\n        period: 60\n        length: 600\n      - name: ClusterStatus.red\n        statistics:\n        - Maximum\n        period: 60\n        length: 600"` |  |
 | extraArgs | object | `{}` |  |
 | extraEnv | list | `[]` |  |
+| extraVolumeMounts | list | `[]` |  |
+| extraVolumes | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/nerdswords/yet-another-cloudwatch-exporter"` |  |
@@ -58,6 +60,7 @@ helm install nerdswords/yet-another-cloudwatch-exporter
 | service.type | string | `"ClusterIP"` |  |
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
+| serviceAccount.labels | object | `{}` | Labels to add to the service account |
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template |
 | serviceMonitor.enabled | bool | `false` |  |
 | testConnection | bool | `true` |  |
