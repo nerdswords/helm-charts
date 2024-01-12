@@ -1,6 +1,6 @@
 # yet-another-cloudwatch-exporter
 
-![Version: 0.25.0](https://img.shields.io/badge/Version-0.25.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.55.0](https://img.shields.io/badge/AppVersion-v0.55.0-informational?style=flat-square)
+![Version: 0.26.0](https://img.shields.io/badge/Version-0.26.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.56.0](https://img.shields.io/badge/AppVersion-v0.56.0-informational?style=flat-square)
 
 Yace - Yet Another CloudWatch Exporter
 
