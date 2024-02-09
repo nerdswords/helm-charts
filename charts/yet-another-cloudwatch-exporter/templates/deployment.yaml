@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "yet-another-cloudwatch-exporter.fullname" . }}
+  namespace: {{ .Release.Namespace }}
   labels:
     {{- include "yet-another-cloudwatch-exporter.labels" . | nindent 4 }}
 spec:
