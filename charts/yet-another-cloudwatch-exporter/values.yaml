@@ -91,6 +91,11 @@ extraEnv: []
   # Define extra environmental variables list as follows
   # - name : key1
   #   value: value1
+ 
+extraEnvFrom: []
+  # Define extra environmental variables from secrets or configmaps
+  # - secretRef:
+  #     name: secrets
 
 extraArgs: {}
   # scraping-interval: 300
