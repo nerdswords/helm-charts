@@ -11,6 +11,7 @@ jobs:
     if: github.repository == 'nerdswords/helm-charts'
     permissions:
       contents: write
+      packages: write # needed for ghcr access
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
