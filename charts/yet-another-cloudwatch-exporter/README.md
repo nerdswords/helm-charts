@@ -1,6 +1,6 @@
 # yet-another-cloudwatch-exporter
 
-![Version: 0.29.0](https://img.shields.io/badge/Version-0.29.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.57.1](https://img.shields.io/badge/AppVersion-v0.57.1-informational?style=flat-square)
+![Version: 0.30.0](https://img.shields.io/badge/Version-0.30.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.57.1](https://img.shields.io/badge/AppVersion-v0.57.1-informational?style=flat-square)
 
 Yace - Yet Another CloudWatch Exporter
 
@@ -35,7 +35,8 @@ helm install nerdswords/yet-another-cloudwatch-exporter
 | extraVolumes | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/nerdswords/yet-another-cloudwatch-exporter"` |  |
+| image.registry | string | `"ghcr.io"` |  |
+| image.repository | string | `"nerdswords/yet-another-cloudwatch-exporter"` |  |
 | image.tag | string | `""` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
