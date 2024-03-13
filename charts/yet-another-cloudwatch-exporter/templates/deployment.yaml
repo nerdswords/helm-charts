@@ -5,6 +5,10 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "yet-another-cloudwatch-exporter.labels" . | nindent 4 }}
+  {{- with .Values.podAnnotations }}
+  annotations:    
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
