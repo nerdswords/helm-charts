@@ -5,7 +5,8 @@
 replicaCount: 1
 
 image:
-  repository: ghcr.io/nerdswords/yet-another-cloudwatch-exporter
+  registry: ghcr.io
+  repository: nerdswords/yet-another-cloudwatch-exporter
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""

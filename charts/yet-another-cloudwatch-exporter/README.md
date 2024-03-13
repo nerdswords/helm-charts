@@ -35,7 +35,8 @@ helm install nerdswords/yet-another-cloudwatch-exporter
 | extraVolumes | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/nerdswords/yet-another-cloudwatch-exporter"` |  |
+| image.registry | string | `"ghcr.io"` |  |
+| image.repository | string | `"nerdswords/yet-another-cloudwatch-exporter"` |  |
 | image.tag | string | `""` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
