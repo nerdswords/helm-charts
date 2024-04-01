@@ -47,6 +47,10 @@ spec:
             {{- range $key, $value := .Values.extraArgs }}
             - --{{ $key }}={{ $value }}
             {{- end }}
+          {{- if .Values.lifecycle }}
+          lifecycle: 
+            {{- toYaml .Values.lifecycle | nindent 12 }}
+          {{- end }}
           volumeMounts:
             - name: vol-yet-another-cloudwatch-exporter
               mountPath: /config
