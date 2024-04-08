@@ -25,6 +25,10 @@ serviceAccount:
   # -- The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
   name: ""
+  # This defaults to "true" so that YACE tries to automount ServiceAccountTokens by default
+  # You may want to set this to false in your environment to pass security policies.  Otherwise,
+  # the default will probably be fine.
+  automountServiceAccountToken: true 
 
 podAnnotations: {}
 
