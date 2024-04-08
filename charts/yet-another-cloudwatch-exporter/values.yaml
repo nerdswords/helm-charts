@@ -28,7 +28,7 @@ serviceAccount:
   # This defaults to "true" so that YACE tries to automount ServiceAccountTokens by default
   # You may want to set this to false in your environment to pass security policies.  Otherwise,
   # the default will probably be fine.
-  automountServiceAccountToken: true 
+  automountServiceAccountToken: true
 
 podAnnotations: {}
 
