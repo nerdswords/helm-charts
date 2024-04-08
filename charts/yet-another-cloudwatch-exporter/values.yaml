@@ -118,6 +118,10 @@ extraVolumes: []
 #       secretProviderClass: "secret-csi-provider"
 #   name : secrets-store01-inline
 
+# Container lifecycle hooks
+# Ref. https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/
+lifecycle: {}
+
 aws:
   role:
 
