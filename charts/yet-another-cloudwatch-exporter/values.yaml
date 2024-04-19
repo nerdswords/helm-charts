@@ -200,12 +200,10 @@ config: |-
   sts-region: eu-west-1
   discovery:
     exportedTagsOnMetrics:
-      ec2:
+      AWS/ES:
         - Name
-      ebs:
-        - VolumeId
     jobs:
-    - type: es
+    - type: AWS/ES
       regions:
         - eu-west-1
       searchTags:
