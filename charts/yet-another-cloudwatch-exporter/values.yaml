@@ -36,6 +36,8 @@ podLabels: {}
 
 portName: http
 
+containerPort: 5000
+
 podSecurityContext: {}
   # fsGroup: 2000
 
