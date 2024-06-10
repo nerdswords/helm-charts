@@ -1,6 +1,6 @@
 # yet-another-cloudwatch-exporter
 
-![Version: 0.36.0](https://img.shields.io/badge/Version-0.36.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.60.0](https://img.shields.io/badge/AppVersion-v0.60.0-informational?style=flat-square)
+![Version: 0.37.0](https://img.shields.io/badge/Version-0.37.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.60.0](https://img.shields.io/badge/AppVersion-v0.60.0-informational?style=flat-square)
 
 Yace - Yet Another CloudWatch Exporter
 
@@ -28,6 +28,7 @@ helm install nerdswords/yet-another-cloudwatch-exporter
 | aws.secret.includesSessionToken | bool | `false` |  |
 | aws.secret.name | string | `nil` |  |
 | config | string | `"apiVersion: v1alpha1\nsts-region: eu-west-1\ndiscovery:\n  exportedTagsOnMetrics:\n    AWS/ES:\n      - Name\n  jobs:\n  - type: AWS/ES\n    regions:\n      - eu-west-1\n    searchTags:\n      - key: type\n        value: ^(easteregg|k8s)$\n    metrics:\n      - name: FreeStorageSpace\n        statistics:\n        - Sum\n        period: 60\n        length: 600\n      - name: ClusterStatus.green\n        statistics:\n        - Minimum\n        period: 60\n        length: 600\n      - name: ClusterStatus.yellow\n        statistics:\n        - Maximum\n        period: 60\n        length: 600\n      - name: ClusterStatus.red\n        statistics:\n        - Maximum\n        period: 60\n        length: 600"` |  |
+| containerPort | int | `5000` |  |
 | extraArgs | object | `{}` |  |
 | extraEnv | list | `[]` |  |
 | extraEnvFrom | list | `[]` |  |
