@@ -6,7 +6,7 @@ metadata:
   labels:
     {{- include "yet-another-cloudwatch-exporter.labels" . | nindent 4 }}
   {{- with .Values.podAnnotations }}
-  annotations:    
+  annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
@@ -48,7 +48,7 @@ spec:
             - --{{ $key }}={{ $value }}
             {{- end }}
           {{- if .Values.lifecycle }}
-          lifecycle: 
+          lifecycle:
             {{- toYaml .Values.lifecycle | nindent 12 }}
           {{- end }}
           volumeMounts:
@@ -99,7 +99,7 @@ spec:
             {{- end }}
           ports:
             - name: {{ .Values.portName }}
-              containerPort: 5000
+              containerPort: {{ .Values.containerPort }}
               protocol: TCP
           livenessProbe:
             httpGet:
