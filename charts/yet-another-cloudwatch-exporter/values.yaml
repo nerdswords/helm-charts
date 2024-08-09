@@ -1,7 +1,8 @@
 # Default values for yet-another-cloudwatch-exporter.
 # This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
+
 global: {}
+# Declare variables to be passed into your templates.
 # To help compatibility with other charts which use global.imagePullSecrets.
 # global:
 #   imagePullSecrets:
