@@ -1,3 +1,6 @@
+> ⚠️ **DEPRECATION NOTICE** ⚠️
+> YACE is now part of [prometheus-community](https://github.com/prometheus-community/yet-another-cloudwatch-exporter), the helm chart for new YACE releases has been moved the prometheus-community [helm-charts repo](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-yet-another-cloudwatch-exporter).
+
 # Helm chart for Yace
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
